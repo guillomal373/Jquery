@@ -1,113 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js demo-1">
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo1.css" />
-		<script src="js/modernizr.custom.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="main clearfix">
-				<div class="bb-custom-wrapper">
-					<div id="bb-bookblock" class="bb-bookblock">
-						<div class="bb-item">
-							<a href="http://drbl.in/bKVq"><img src="images/demo1/1.jpg" alt="image01"/></a>
-						</div>
-						<div class="bb-item">
-							<a href="http://drbl.in/ciTX"><img src="images/demo1/2.jpg" alt="image02"/></a>
-						</div>
-						<div class="bb-item">
-							<a href="http://drbl.in/cLHx"><img src="images/demo1/3.jpg" alt="image03"/></a>
-						</div>
-						<div class="bb-item">
-							<a href="http://drbl.in/bAfn"><img src="images/demo1/4.jpg" alt="image04"/></a>
-						</div>
-						<div class="bb-item">
-							<a href="http://drbl.in/dcbE"><img src="images/demo1/5.jpg" alt="image05"/></a>
-						</div>
-					</div>
-					<nav>
-						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
-						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
-					</nav>
-				</div>
-			</div>
-		</div><!-- /container -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/jquerypp.custom.js"></script>
-		<script src="js/jquery.bookblock.js"></script>
-		<script>
-			var Page = (function() {
-				
-				var config = {
-						$bookBlock : $( '#bb-bookblock' ),
-						$navNext : $( '#bb-nav-next' ),
-						$navPrev : $( '#bb-nav-prev' ),
-						$navFirst : $( '#bb-nav-first' ),
-						$navLast : $( '#bb-nav-last' )
-					},
-					init = function() {
-						config.$bookBlock.bookblock( {
-							speed : 800,
-							shadowSides : 0.8,
-							shadowFlip : 0.7
-						} );
-						initEvents();
-					},
-					initEvents = function() {
-						
-						var $slides = config.$bookBlock.children();
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+        <script src="js/modernizr.custom.js"></script>
+    </head>
+    <body>
+        <div id="bb-bookblock" class="bb-bookblock">
+            <div class="bb-item">
+                <a href="http://drbl.in/bKVq"><img src="http://2.bp.blogspot.com/-bLCUwc7dQGM/UUoLCATDUpI/AAAAAAAAAOk/aYRIB0e3WrM/s640/Need-For-Speed-most-wanted-2.jpg" alt="image01"/></a>
+            </div>
+            <div class="bb-item">
+                <a href="http://drbl.in/ciTX"><img src="http://3.bp.blogspot.com/-D5WOXeykplo/TflDYXRZfnI/AAAAAAAACvQ/BOpEBMDERYg/s640/Need+For+Speed+Carbon+NFS.jpg" alt="image02"/></a>
+            </div>
+            <div class="bb-item">
+                <a href="http://drbl.in/cLHx"><img src="http://3.bp.blogspot.com/-Xg64GTDPJKo/UFY4eAYMTnI/AAAAAAAAAEs/DeCrGyqHwEE/s640/need+for+speed+carbon+wallpaper+(www.letplayit.blogspot+(3).jpg" alt="image03"/></a>
+            </div>
+        </div>
+        <nav>
+            <a id="bb-nav-prev" href="#" >Anterior</a>
+            <a id="bb-nav-next" href="#" >Siguiente</a>
+        </nav>
 
-						// add navigation events
-						config.$navNext.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'next' );
-							return false;
-						} );
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="js/jquery.bookblock.js"></script>
+        <script>
+            var Page = (function() {
 
-						config.$navPrev.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'prev' );
-							return false;
-						} );
-						
-						// add swipe events
-						$slides.on( {
-							'swipeleft' : function( event ) {
-								config.$bookBlock.bookblock( 'next' );
-								return false;
-							},
-							'swiperight' : function( event ) {
-								config.$bookBlock.bookblock( 'prev' );
-								return false;
-							}
-						} );
+                var config = {
+                    $bookBlock: $('#bb-bookblock'),
+                    $navNext: $('#bb-nav-next'),
+                    $navPrev: $('#bb-nav-prev')
+                },
+                init = function() {
+                    config.$bookBlock.bookblock({
+                        speed: 800,
+                        shadowSides: 0.8,
+                        shadowFlip: 0.7
+                    });
+                    initEvents();
+                },
+                        initEvents = function() {
 
-						// add keyboard events
-						$( document ).keydown( function(e) {
-							var keyCode = e.keyCode || e.which,
-								arrow = {
-									left : 37,
-									up : 38,
-									right : 39,
-									down : 40
-								};
+                            var $slides = config.$bookBlock.children();
 
-							switch (keyCode) {
-								case arrow.left:
-									config.$bookBlock.bookblock( 'prev' );
-									break;
-								case arrow.right:
-									config.$bookBlock.bookblock( 'next' );
-									break;
-							}
-						} );
-					};
+                            // add navigation events
+                            config.$navNext.on('click touchstart', function() {
+                                config.$bookBlock.bookblock('next');
+                                return false;
+                            });
 
-					return { init : init };
+                            config.$navPrev.on('click touchstart', function() {
+                                config.$bookBlock.bookblock('prev');
+                                return false;
+                            });
 
-			})();
-		</script>
-		<script>
-				Page.init();
-		</script>
-	</body>
+                            // add swipe events
+                            $slides.on({
+                                'swipeleft': function(event) {
+                                    config.$bookBlock.bookblock('next');
+                                    return false;
+                                },
+                                'swiperight': function(event) {
+                                    config.$bookBlock.bookblock('prev');
+                                    return false;
+                                }
+                            });
+
+                            // add keyboard events
+                            $(document).keydown(function(e) {
+                                var keyCode = e.keyCode || e.which,
+                                        arrow = {
+                                            left: 37,
+                                            up: 38,
+                                            right: 39,
+                                            down: 40
+                                        };
+
+                                switch (keyCode) {
+                                    case arrow.left:
+                                        config.$bookBlock.bookblock('prev');
+                                        break;
+                                    case arrow.right:
+                                        config.$bookBlock.bookblock('next');
+                                        break;
+                                }
+                            });
+                        };
+
+                return {init: init};
+
+            })();
+        </script>
+        <script>
+            Page.init();
+        </script>
+    </body>
 </html>
