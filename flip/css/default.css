@@ -1,0 +1,25 @@
+
+#barra {
+	width: 300px;
+	height: 50px;
+}
+
+#contenedor {
+	float:left;
+	width: 400px;
+	height: 200px;
+}
+#frente2, #frente1, #frente3, #frente4
+{
+	position:absolute;
+	cursor:pointer;
+	width:300px;
+	height:190px;
+}
+
+#reverso2, #reverso1, #reverso3, #reverso4
+{
+	display:none;
+	position:absolute;
+	cursor:pointer;
+}
