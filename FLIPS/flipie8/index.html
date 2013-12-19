@@ -1,0 +1,80 @@
+<html>
+<head>
+<style>
+
+img{
+ width:300px;
+ height: 200px;    
+}
+
+#boton{
+  width: 800px;
+  height: 50px;
+  background-color: red;
+}
+
+#adelante{
+    width: 300px;
+}
+#atras{
+    width: 0px;
+}
+.contenedorAdelante{
+    text-align: center;
+    width: 800px;
+}
+.contenedorAtras{
+    text-align: center;
+    width: 800px;
+    margin-top:-205px;
+}
+
+</style>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<body>
+
+<div id="boton">
+    <a href="#" id="btnAdelante">Ver Adelante</a>
+    <a href="#" id="btnAtras">Ver Atras</a>
+</div>
+
+<div class="contenedorAdelante"><img id="adelante" src="http://www.mrvaldemar.com/js/flipie8/images/adelante.png" /></div>
+
+<div class="contenedorAtras"><img id="atras" src="http://www.mrvaldemar.com/js/flipie8/images/atras.png" /></div>
+
+<script>
+
+$('#btnAtras').click(function() {
+    $('#adelante').animate({
+        opacity: 1,
+        width: "0"
+      }, 1000, function() {
+          $('#boton').css('background-color','green');
+          $('#atras').animate({
+            opacity: 1,
+            width: "300"
+          }, 1000, function() {
+              $('#boton').css('background-color','green');
+          }); 
+      });
+});
+$('#btnAdelante').click(function() {
+    $('#atras').animate({
+        opacity: 1,
+        width: "0"
+      }, 1000, function() {
+          $('#boton').css('background-color','green');
+          $('#adelante').animate({
+            opacity: 1,
+            width: "300"
+          }, 1000, function() {
+              $('#boton').css('background-color','green');
+          }); 
+      });
+});
+
+</script>
+
+</body>
+</html>
